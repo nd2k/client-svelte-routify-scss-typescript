@@ -3,26 +3,15 @@
 	import { routes } from "@sveltech/routify/tmp/routes";
 </script>
 
-<Router {routes} />
+<main>
+	<Router {routes} />
+</main>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+<style lang="scss">
+@import './styles/global.scss';
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+main {
+  background-color: $background-color;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
 </style>
