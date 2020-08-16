@@ -1,11 +1,21 @@
+<script lang="ts">
+  
+</script>
 
 <div class="card">
-Card
+  <slot name="title">
+    <h1 class="cardTitle">Title</h1>
+  </slot>
+  <hr>
+  <slot />  
 </div>
 
 <style lang="scss">
 @import '../styles/global.scss';
 
+hr {
+  border-top: 2px solid $color-3;
+}
 .card {
   width: 75%;
   height: 100%;
