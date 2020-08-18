@@ -3,16 +3,18 @@
   import FieldForm from '../components/FieldForm.svelte';
   import Button from '../components/Button.svelte';
   import axios from 'axios';
+  import { signup } from '../store/actions.ts';
+  import type { SignupForm } from '../interfaces/SignupForm.interface.ts';
+
+  let signupForm: SignupForm = {
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  };
 
   let root: HTMLElement; 
   let value: string;
-
-  let signupForm: object = {
-		name: '',
-		email: '',
-		password:'',
-		confirmPassword: ''
-  }
 
   const handleInput = (event) => {
     const field = event.target.id;
@@ -23,12 +25,9 @@
     if(field === "confirmPassword") { signupForm.confirmPassword = value}        
 	}
   
-  async function signup() {
-    console.log('ok');
-		console.log(signupForm)
-		const response = await axios.post('http://localhost:3000/api/v1/user/signup', signupForm);
-    console.log(response);
-    reset();	
+  function handleSignup() {
+    signup(signupForm);
+    reset();
   }
   
   function reset() {
@@ -81,7 +80,7 @@
         buttonName="Submit"
         buttonClasses="right"
         buttonColor="#326273"
-        on:click={signup}
+        on:click={handleSignup}
       />
     </div>
   </Card>

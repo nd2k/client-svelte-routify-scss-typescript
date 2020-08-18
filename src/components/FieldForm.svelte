@@ -71,7 +71,7 @@
     }
     &:focus + label,
     &.has-value + label {
-      top: -0.5rem;
+      top: -1rem;
       color: $color-3;
       font-size: 0.8rem;
     }
